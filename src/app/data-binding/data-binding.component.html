@@ -1,0 +1,42 @@
+<p>data-binding works!ssssasas</p>
+<div>
+    <h2>
+        interpolação
+    </h2>
+    <p>{{ texto }}</p>
+    <p>O resultado de 1 + 1 é {{1+1}}</p>
+    <p>O resultado de 1 + 1 não é {{1+1 + getValor()}}</p>
+    <h2>
+        Property binding
+    </h2>
+    <h2>
+        <img src="{{ urlImagem}}" />
+    </h2>
+    <img [src]="urlImagem" />
+
+    <h2> Event binding</h2>
+    <input type="button" (click)="botaoBinding()" value="Evento do botão">
+
+    <br />
+
+    <label>Input</label>
+    <input type="text" (keyup)="onKeyUp($event)">
+    <p>nome digitado é {{texto}}</p>
+
+    <label>Nome input</label>
+    <input type="text" [value]="nome"
+    (input)="nome = $event.target.value">
+    <br />
+    <p>nome digitado é {{ nome }}</p>
+
+    <label>Nome input</label>
+    <input type="text" [(ngModel)]="nome">
+    <br />
+    <p>nome digitado é {{ nome }}</p>
+
+
+    <p>digite um numero:</p>
+    <input type="text" (keyup)="onKeyUp($event)">
+    <p>seu fatorial é:</p>
+    <input type="button" (click)="fatorial()" value="Evento do botão">
+</div>

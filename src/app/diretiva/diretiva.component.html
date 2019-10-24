@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="alert" *ngIf="aluno != null" >
+        Aluno: {{ aluno.nome }}
+        <ul class="list-group">
+            <li (click) = "selecionarNota(nota)" 
+            class="list-group-item d-flex justify-content-between" 
+            [ngClass] = "{
+                'list-group-item-success': nota.nota >= 9,
+                'list-group-item-primary': nota.nota >= 7 && nota.nota < 9,
+                'list-group-item-danger': nota.nota < 7
+            }"
+            *ngFor="let nota of aluno.notas" >
+            {{ nota.disciplina }}
+            <span *ngIf="mostrarNota">{{ nota.nota }}</span> 
+            </li>
+        </ul>
+        <button type="button" class="btn btn-primary btn-block btn-mostrar-nota"
+        (click)="mostrarNota = !mostrarNota">{{ mostrarNota ? 'Esconder' : 'Mostrar'}}
+    </button>
+    </div>
+    <div class="alert alert-danger" *ngIf="aluno == null" >
+        Aluno não encontrado
+    </div>
+</div>
